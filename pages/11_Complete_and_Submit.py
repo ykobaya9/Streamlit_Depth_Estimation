@@ -5,6 +5,7 @@ from PIL import Image
 import os
 import gspread 
 from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2 import service_account
 import json
 from streamlit_extras.switch_page_button import switch_page
 
