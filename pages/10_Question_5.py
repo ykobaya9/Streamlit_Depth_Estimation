@@ -162,6 +162,10 @@ else:
             select_text = "Which sample do you think will have the highest error within the highlighted region?"
             
             highest_error_sample = st.selectbox(select_text,options=options)           
+            if st.session_state['assigned_interpretable'] == '1':
+                options = ["Yes", "No"]
+                select_text = "Were the filtered images/feature importances useful?"
+                user_survey = st.selectbox(select_text,options=options)
             submit_button = st.form_submit_button(label='Submit')
             if submit_button:
                 st.session_state[f'Question_Answer_{Index}'] = highest_error_sample 

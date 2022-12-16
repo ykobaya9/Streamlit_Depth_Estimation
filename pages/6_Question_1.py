@@ -161,7 +161,7 @@ else:
             highest_error_sample = st.selectbox(select_text,options=options)
             if st.session_state['assigned_interpretable'] == '1':
                 options = ["Yes", "No"]
-                select_text = "Was the filtered images/feature importances useful?"
+                select_text = "Were the filtered images/feature importances useful?"
                 user_survey = st.selectbox(select_text,options=options)
 
             submit_button = st.form_submit_button(label='Submit')
