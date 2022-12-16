@@ -26,7 +26,7 @@ else:
             predicted_depth = Image.open(os.path.join('Superpixel_Pred',st.session_state['question_images'][2*Index]+'_super.jpg')).convert('RGB')
             st.image(predicted_depth)
         if st.session_state['assigned_interpretable'] == '1':
-            _, row1_2_1, row1_2_2, row1_2_3, row1_2_4, _ = st.columns((0.1, 1, 1, 1, 1, 1))
+            _, row1_2_1, row1_2_2, row1_2_3, row1_2_4, row1_2_5, _ = st.columns((0.1, 1, 1, 1, 1, 1, 1))
             with row1_2_1:
                 st.markdown("<h5 style='text-align: center; color: black;'>Edges</h5>", unsafe_allow_html=True)
                 edge_image = Image.open(os.path.join('canny',st.session_state['question_images'][2*Index]+'_canny.jpg'))
@@ -42,7 +42,12 @@ else:
             with row1_2_4:
                 st.markdown("<h5 style='text-align: center; color: black;'>Blurred</h5>", unsafe_allow_html=True)
                 blur_image = Image.open(os.path.join('blur',st.session_state['question_images'][2*Index]+'_blur.jpg'))
-                st.image(blur_image) 
+                st.image(blur_image)
+            with row1_2_5:
+                st.markdown("<h5 style='text-align: center; color: black;'>Features Contributing to Error</h5>", unsafe_allow_html=True)
+                shap = Image.open(os.path.join('SHAP',st.session_state['question_images'][2*Index]+'_shap.png'))
+                st.image(shap)
+
         st.markdown("---")
 
         st.markdown(f'#### Sample B')
@@ -56,7 +61,7 @@ else:
             predicted_depth = Image.open(os.path.join('Superpixel_Pred',st.session_state['question_images'][(2*Index)+1]+'_super.jpg')).convert('RGB')
             st.image(predicted_depth)
         if st.session_state['assigned_interpretable'] == '1':
-            _, row2_2_1, row2_2_2, row2_2_3, row2_2_4, _ = st.columns((0.1, 1, 1, 1, 1, 1))
+            _, row2_2_1, row2_2_2, row2_2_3, row2_2_4, row2_2_5, _ = st.columns((0.1, 1, 1, 1, 1, 1, 1))
             with row2_2_1:
                 st.markdown("<h5 style='text-align: center; color: black;'>Edges</h5>", unsafe_allow_html=True)
                 edge_image = Image.open(os.path.join('canny',st.session_state['question_images'][2*Index+1]+'_canny.jpg'))
@@ -73,6 +78,10 @@ else:
                 st.markdown("<h5 style='text-align: center; color: black;'>Blurred</h5>", unsafe_allow_html=True)
                 blur_image = Image.open(os.path.join('blur',st.session_state['question_images'][2*Index+1]+'_blur.jpg'))
                 st.image(blur_image)
+            with row2_2_5:
+                st.markdown("<h5 style='text-align: center; color: black;'>Features Contributing to Error</h5>", unsafe_allow_html=True)
+                shap = Image.open(os.path.join('SHAP',st.session_state['question_images'][2*Index+1]+'_shap.png'))
+                st.image(shap)
         st.markdown("Answer already submitted, thank you!")
     else:
 
@@ -88,7 +97,7 @@ else:
                 predicted_depth = Image.open(os.path.join('Superpixel_Pred',st.session_state['question_images'][2*Index]+'_super.jpg')).convert('RGB')
                 st.image(predicted_depth)
             if st.session_state['assigned_interpretable'] == '1':
-                _, row1_2_1, row1_2_2, row1_2_3, row1_2_4, _ = st.columns((0.1, 1, 1, 1, 1, 1))
+                _, row1_2_1, row1_2_2, row1_2_3, row1_2_4, row1_2_5, _ = st.columns((0.1, 1, 1, 1, 1, 1, 1))
                 with row1_2_1:
                     st.markdown("<h5 style='text-align: center; color: black;'>Edges</h5>", unsafe_allow_html=True)
                     edge_image = Image.open(os.path.join('canny',st.session_state['question_images'][2*Index]+'_canny.jpg'))
@@ -105,7 +114,10 @@ else:
                     st.markdown("<h5 style='text-align: center; color: black;'>Blurred</h5>", unsafe_allow_html=True)
                     blur_image = Image.open(os.path.join('blur',st.session_state['question_images'][2*Index]+'_blur.jpg'))
                     st.image(blur_image)
-
+                with row1_2_5:
+                    st.markdown("<h5 style='text-align: center; color: black;'>Features Contributing to Error</h5>", unsafe_allow_html=True)
+                    shap = Image.open(os.path.join('SHAP',st.session_state['question_images'][2*Index]+'_shap.png'))
+                    st.image(shap)
                     
             st.markdown("---")
             # with row2_3:
@@ -125,7 +137,7 @@ else:
                 predicted_depth = Image.open(os.path.join('Superpixel_Pred',st.session_state['question_images'][(2*Index)+1]+'_super.jpg')).convert('RGB')
                 st.image(predicted_depth)
             if st.session_state['assigned_interpretable'] == '1':
-                _, row2_2_1, row2_2_2, row2_2_3, row2_2_4, _ = st.columns((0.1, 1, 1, 1, 1, 1))
+                _, row2_2_1, row2_2_2, row2_2_3, row2_2_4, row2_2_5, _ = st.columns((0.1, 1, 1, 1, 1, 1, 1))
                 with row2_2_1:
                     st.markdown("<h5 style='text-align: center; color: black;'>Edges</h5>", unsafe_allow_html=True)
                     edge_image = Image.open(os.path.join('canny',st.session_state['question_images'][2*Index+1]+'_canny.jpg'))
@@ -142,7 +154,10 @@ else:
                     st.markdown("<h5 style='text-align: center; color: black;'>Blurred</h5>", unsafe_allow_html=True)
                     blur_image = Image.open(os.path.join('blur',st.session_state['question_images'][2*Index+1]+'_blur.jpg'))
                     st.image(blur_image)
-
+                with row2_2_5:
+                    st.markdown("<h5 style='text-align: center; color: black;'>Features Contributing to Error</h5>", unsafe_allow_html=True)
+                    shap = Image.open(os.path.join('SHAP',st.session_state['question_images'][2*Index+1]+'_shap.png'))
+                    st.image(shap)
             options = ["Sample A", "Sample B"]
             select_text = "Which sample do you think will have the highest error within the highlighted region?"
             
