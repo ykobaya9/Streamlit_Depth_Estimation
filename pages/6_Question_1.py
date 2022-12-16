@@ -26,7 +26,7 @@ else:
             predicted_depth = Image.open(os.path.join('Superpixel_Pred',st.session_state['question_images'][2*Index]+'_super.jpg')).convert('RGB')
             st.image(predicted_depth)
         if st.session_state['assigned_interpretable'] == '1':
-            _, row1_2_1, row1_2_2, row1_2_3, row1_2_4, _, row1_2_5 = st.columns((0.1, 1, 1, 1, 1, 1))
+            _, row1_2_1, row1_2_2, row1_2_3, row1_2_4, row1_2_5, _ = st.columns((0.1, 1, 1, 1, 1, 1, 1))
             with row1_2_1:
                 st.markdown("<h5 style='text-align: center; color: black;'>Edges</h5>", unsafe_allow_html=True)
                 edge_image = Image.open(os.path.join('canny',st.session_state['question_images'][2*Index]+'_canny.jpg'))
@@ -62,7 +62,7 @@ else:
             predicted_depth = Image.open(os.path.join('Superpixel_Pred',st.session_state['question_images'][(2*Index)+1]+'_super.jpg')).convert('RGB')
             st.image(predicted_depth)
         if st.session_state['assigned_interpretable'] == '1':
-            _, row2_2_1, row2_2_2, row2_2_3, row2_2_4, _, row2_2_5 = st.columns((0.1, 1, 1, 1, 1, 1))
+            _, row2_2_1, row2_2_2, row2_2_3, row2_2_4, row2_2_5, _ = st.columns((0.1, 1, 1, 1, 1, 1, 1))
             with row2_2_1:
                 st.markdown("<h5 style='text-align: center; color: black;'>Edges</h5>", unsafe_allow_html=True)
                 edge_image = Image.open(os.path.join('canny',st.session_state['question_images'][2*Index+1]+'_canny.jpg'))
@@ -97,7 +97,7 @@ else:
                 predicted_depth = Image.open(os.path.join('Superpixel_Pred',st.session_state['question_images'][2*Index]+'_super.jpg')).convert('RGB')
                 st.image(predicted_depth)
             if st.session_state['assigned_interpretable'] == '1':
-                _, row1_2_1, row1_2_2, row1_2_3, row1_2_4, _, row1_2_5 = st.columns((0.1, 1, 1, 1, 1, 1))
+                _, row1_2_1, row1_2_2, row1_2_3, row1_2_4, row1_2_5, _ = st.columns((0.1, 1, 1, 1, 1, 1, 1))
                 with row1_2_1:
                     st.markdown("<h5 style='text-align: center; color: black;'>Edges</h5>", unsafe_allow_html=True)
                     edge_image = Image.open(os.path.join('canny',st.session_state['question_images'][2*Index]+'_canny.jpg'))
@@ -131,7 +131,7 @@ else:
                 predicted_depth = Image.open(os.path.join('Superpixel_Pred',st.session_state['question_images'][(2*Index)+1]+'_super.jpg')).convert('RGB')
                 st.image(predicted_depth)
             if st.session_state['assigned_interpretable'] == '1':
-                _, row2_2_1, row2_2_2, row2_2_3, row2_2_4, _, row2_2_5 = st.columns((0.1, 1, 1, 1, 1, 1))
+                _, row2_2_1, row2_2_2, row2_2_3, row2_2_4, row2_2_5, _ = st.columns((0.1, 1, 1, 1, 1, 1, 1))
                 with row2_2_1:
                     st.markdown("<h5 style='text-align: center; color: black;'>Edges</h5>", unsafe_allow_html=True)
                     edge_image = Image.open(os.path.join('canny',st.session_state['question_images'][2*Index+1]+'_canny.jpg'))
